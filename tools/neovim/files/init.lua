@@ -28,10 +28,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
+{% set theme = config.theme | default(value="everforest") %}
+{% set enable_lsp = config.lsp | default(value=true) %}
+
 -- Plugin specification
 require("lazy").setup({
   -- Theme
-  {% if config.theme == "everforest" %}
+  {% if theme == "everforest" %}
   {
     "neanias/everforest-nvim",
     version = false,
@@ -41,7 +44,7 @@ require("lazy").setup({
       require("everforest").load()
     end,
   },
-  {% elif config.theme == "tokyonight" %}
+  {% elif theme == "tokyonight" %}
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -50,7 +53,7 @@ require("lazy").setup({
       vim.cmd([[colorscheme tokyonight]])
     end,
   },
-  {% elif config.theme == "catppuccin" %}
+  {% elif theme == "catppuccin" %}
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -60,13 +63,24 @@ require("lazy").setup({
       vim.cmd([[colorscheme catppuccin]])
     end,
   },
-  {% elif config.theme == "gruvbox" %}
+  {% elif theme == "gruvbox" %}
   {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       vim.cmd([[colorscheme gruvbox]])
+    end,
+  },
+  {% else %}
+  -- Default theme (everforest)
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").load()
     end,
   },
   {% endif %}
@@ -83,7 +97,7 @@ require("lazy").setup({
     },
   },
 
-  {% if config.lsp %}
+  {% if enable_lsp %}
   -- LSP Configuration
   {
     "neovim/nvim-lspconfig",

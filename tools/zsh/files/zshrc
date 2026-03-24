@@ -10,24 +10,25 @@ antigen use oh-my-zsh
 # Theme
 antigen theme {{ config.theme | default(value="robbyrussell") }}
 
+{% set plugins = config.plugins | default(value=["autosuggestions", "syntax-highlighting"]) %}
 # Plugins
-{% if "autosuggestions" in config.plugins %}
+{% if "autosuggestions" in plugins %}
 antigen bundle zsh-users/zsh-autosuggestions
 {% endif %}
 
-{% if "syntax-highlighting" in config.plugins %}
+{% if "syntax-highlighting" in plugins %}
 antigen bundle zdharma-continuum/fast-syntax-highlighting
 {% endif %}
 
-{% if "z" in config.plugins %}
+{% if "z" in plugins %}
 antigen bundle z
 {% endif %}
 
-{% if "docker" in config.plugins %}
+{% if "docker" in plugins %}
 antigen bundle docker
 {% endif %}
 
-{% if "git" in config.plugins %}
+{% if "git" in plugins %}
 antigen bundle git
 {% endif %}
 
