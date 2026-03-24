@@ -23,12 +23,7 @@ name = "theme"
 type = "select"
 message = "Color theme"
 default = "everforest"
-
-[[options.prompts.choices]]
-"everforest" = "everforest"
-"tokyonight" = "tokyonight"
-"catppuccin" = "catppuccin"
-"gruvbox" = "gruvbox"
+choices = ["everforest", "tokyonight", "catppuccin", "gruvbox"]
 
 [[options.prompts]]
 name = "lsp"

@@ -23,12 +23,7 @@ name = "theme"
 type = "select"
 message = "Color theme"
 default = "default"
-
-[[options.prompts.choices]]
-"default" = "default"
-"gruvbox" = "gruvbox"
-"solarized" = "solarized"
-"nord" = "nord"
+choices = ["default", "gruvbox", "solarized", "nord"]
 
 [[options.prompts]]
 name = "line_numbers"

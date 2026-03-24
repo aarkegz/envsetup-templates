@@ -29,7 +29,4 @@ name = "default_branch"
 type = "select"
 message = "Default branch name"
 default = "main"
-
-[[options.prompts.choices]]
-"main" = "main"
-"master" = "master"
+choices = ["main", "master"]

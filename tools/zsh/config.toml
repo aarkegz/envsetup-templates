@@ -23,22 +23,11 @@ name = "theme"
 type = "select"
 message = "Prompt theme"
 default = "robbyrussell"
-
-[[options.prompts.choices]]
-"robbyrussell" = "robbyrussell"
-"agnoster" = "agnoster"
-"pure" = "pure"
-"redhat" = "redhat"
+choices = ["robbyrussell", "agnoster", "pure", "redhat"]
 
 [[options.prompts]]
 name = "plugins"
 type = "multi_select"
 message = "Enable plugins"
 default = ["autosuggestions", "syntax-highlighting"]
-
-[[options.prompts.choices]]
-"autosuggestions" = "zsh-autosuggestions"
-"syntax-highlighting" = "fast-syntax-highlighting"
-"z" = "z (directory jumping)"
-"docker" = "docker completion"
-"git" = "git aliases"
+choices = ["autosuggestions", "syntax-highlighting", "z", "docker", "git"]

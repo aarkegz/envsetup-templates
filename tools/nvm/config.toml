@@ -14,8 +14,4 @@ name = "node_version"
 type = "select"
 message = "Default Node.js version"
 default = "lts"
-
-[[options.prompts.choices]]
-"lts" = "LTS (Recommended)"
-"latest" = "Latest"
-"none" = "Don't install Node.js"
+choices = ["lts", "latest", "none"]

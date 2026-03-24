@@ -14,19 +14,11 @@ name = "default_toolchain"
 type = "select"
 message = "Default toolchain"
 default = "stable"
-
-[[options.prompts.choices]]
-"stable" = "stable (Recommended)"
-"beta" = "beta"
-"nightly" = "nightly"
+choices = ["stable", "beta", "nightly"]
 
 [[options.prompts]]
 name = "components"
 type = "multi_select"
 message = "Additional components"
 default = []
-
-[[options.prompts.choices]]
-"rust-analyzer" = "rust-analyzer (LSP)"
-"clippy" = "clippy (linter)"
-"rustfmt" = "rustfmt (formatter)"
+choices = ["rust-analyzer", "clippy", "rustfmt"]

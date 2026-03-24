@@ -17,10 +17,7 @@ name = "prefix"
 type = "select"
 message = "Prefix key"
 default = "C-b"
-
-[[options.prompts.choices]]
-"C-b" = "Ctrl+b (default)"
-"C-a" = "Ctrl+a (screen-like)"
+choices = ["C-b", "C-a"]
 
 [[options.prompts]]
 name = "mouse"
