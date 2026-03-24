@@ -1,0 +1,44 @@
+# Zsh configuration
+name = "zsh"
+description = "Zsh shell with antigen plugin manager"
+install_method = "package"
+
+[package]
+apt = "zsh"
+dnf = "zsh"
+pacman = "zsh"
+zypper = "zsh"
+
+[files]
+"files/zshrc" = "~/.zshrc"
+
+[post_install]
+commands = [
+    "mkdir -p ~/.local/bin",
+    "curl -L https://git.io/antigen > ~/.local/bin/antigen.zsh"
+]
+
+[[options.prompts]]
+name = "theme"
+type = "select"
+message = "Prompt theme"
+default = "robbyrussell"
+
+[[options.prompts.choices]]
+"robbyrussell" = "robbyrussell"
+"agnoster" = "agnoster"
+"pure" = "pure"
+"redhat" = "redhat"
+
+[[options.prompts]]
+name = "plugins"
+type = "multi_select"
+message = "Enable plugins"
+default = ["autosuggestions", "syntax-highlighting"]
+
+[[options.prompts.choices]]
+"autosuggestions" = "zsh-autosuggestions"
+"syntax-highlighting" = "fast-syntax-highlighting"
+"z" = "z (directory jumping)"
+"docker" = "docker completion"
+"git" = "git aliases"

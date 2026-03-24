@@ -1,0 +1,35 @@
+# Git configuration
+name = "git"
+description = "Git version control system"
+install_method = "package"
+
+[package]
+apt = "git"
+dnf = "git"
+pacman = "git"
+zypper = "git"
+
+[files]
+"files/gitconfig" = "~/.gitconfig"
+
+[[options.prompts]]
+name = "user_name"
+type = "input"
+message = "Git user name"
+default = "User"
+
+[[options.prompts]]
+name = "user_email"
+type = "input"
+message = "Git user email"
+default = "user@example.com"
+
+[[options.prompts]]
+name = "default_branch"
+type = "select"
+message = "Default branch name"
+default = "main"
+
+[[options.prompts.choices]]
+"main" = "main"
+"master" = "master"

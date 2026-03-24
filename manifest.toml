@@ -1,0 +1,14 @@
+# envsetup-templates manifest
+name = "envsetup-templates"
+version = "1.0.0"
+description = "Default configuration templates for envsetup"
+author = "aarkegz"
+
+[tools]
+git = { path = "tools/git" }
+zsh = { path = "tools/zsh" }
+vim = { path = "tools/vim" }
+neovim = { path = "tools/neovim" }
+tmux = { path = "tools/tmux" }
+nvm = { path = "tools/nvm" }
+rustup = { path = "tools/rustup" }

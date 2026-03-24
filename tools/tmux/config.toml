@@ -1,0 +1,29 @@
+# Tmux configuration
+name = "tmux"
+description = "Terminal multiplexer"
+install_method = "package"
+
+[package]
+apt = "tmux"
+dnf = "tmux"
+pacman = "tmux"
+zypper = "tmux"
+
+[files]
+"files/tmux.conf" = "~/.tmux.conf"
+
+[[options.prompts]]
+name = "prefix"
+type = "select"
+message = "Prefix key"
+default = "C-b"
+
+[[options.prompts.choices]]
+"C-b" = "Ctrl+b (default)"
+"C-a" = "Ctrl+a (screen-like)"
+
+[[options.prompts]]
+name = "mouse"
+type = "confirm"
+message = "Enable mouse support"
+default = true

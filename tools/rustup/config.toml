@@ -1,0 +1,32 @@
+# Rustup (Rust toolchain installer)
+name = "rustup"
+description = "Rust toolchain installer"
+install_method = "script"
+
+[package]
+
+[files]
+
+script = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+
+[[options.prompts]]
+name = "default_toolchain"
+type = "select"
+message = "Default toolchain"
+default = "stable"
+
+[[options.prompts.choices]]
+"stable" = "stable (Recommended)"
+"beta" = "beta"
+"nightly" = "nightly"
+
+[[options.prompts]]
+name = "components"
+type = "multi_select"
+message = "Additional components"
+default = []
+
+[[options.prompts.choices]]
+"rust-analyzer" = "rust-analyzer (LSP)"
+"clippy" = "clippy (linter)"
+"rustfmt" = "rustfmt (formatter)"
