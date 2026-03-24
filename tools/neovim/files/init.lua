@@ -71,17 +71,16 @@ require("lazy").setup({
   },
   {% endif %}
 
-  -- Treesitter
+  -- Treesitter (modern API - no config needed, just install parsers)
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "python", "rust", "javascript", "typescript" },
-        highlight = { enable = true },
-        indent = { enable = true },
-      })
-    end,
+    main = "nvim-treesitter.configs",
+    opts = {
+      ensure_installed = { "lua", "vim", "vimdoc", "python", "rust", "javascript", "typescript" },
+      highlight = { enable = true },
+      indent = { enable = true },
+    },
   },
 
   {% if config.lsp %}
